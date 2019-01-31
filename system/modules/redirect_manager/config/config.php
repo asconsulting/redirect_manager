@@ -28,6 +28,15 @@ array_insert($GLOBALS['BE_MOD']['redirect_manager'], 0, array
 ));
 
 
+// Front end modules
+$GLOBALS['FE_MOD'] = array
+(
+	'redirect_manager' => array
+	(
+		'redirect_404'     => 'Asc\Module\Redirect404'
+	)
+);
+
 /**
  * Models
  */
@@ -37,7 +46,7 @@ $GLOBALS['TL_MODELS']['tl_asc_redirect'] = 'Asc\Model\Redirect';
 /**
  * Hooks
  */
-$GLOBALS['TL_HOOKS']['getPageIdFromUrl'][] = array('Asc\Frontend\Redirect', 'lookupRedirect');
+//$GLOBALS['TL_HOOKS']['getPageIdFromUrl'][] = array('Asc\Frontend\Redirect', 'lookupRedirect');
 
 
 /**
