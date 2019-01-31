@@ -20,7 +20,7 @@ class Redirect extends \Backend
 
     public function generateLabel($row, $label, $dc, $args)
     {
-        $objRedirect = RedirectModel::findByPk($row['id']);
+        /*$objRedirect = RedirectModel::findByPk($row['id']);
 		
 		$strLabel = '<span class="category">[' .$objRedirect->category .']</span> <span class="code">' .$objRedirect->type .'</span>: <span class="redirect">' .$objRedirect->redirect ."</span>";
 		
@@ -31,7 +31,8 @@ class Redirect extends \Backend
 			$strLabel .= ' <span class="arrow">&rarr;</span> <span class="page">' .$objPage->title ."</span>";
  		}	
 		$arg[0] = $strLabel; 
-        return $args;
+        */
+		return $args;
     }
 	
 
