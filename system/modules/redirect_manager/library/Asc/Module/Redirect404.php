@@ -55,12 +55,47 @@ class Redirect404 extends \Contao\Module
      */
     protected function compile()
     {	
-		
+		$redirect = false;
+		$redirect_code = false;
 		$objRedirect = RedirectModel::findBy('published', '1', array('order' => 'sorting'));
 		if ($objRedirect) {			
-			echo \Environment::get('request') ."<br>";
-			echo \Environment::get('host') ."<br>";
-			die();
+			while($objRedirect->next()) {
+				if ($objRedirect->domain == "" || $objRedirect->domain == \Environment::get('host')) {
+					switch ($objRedirect->type) {
+						case "regex":
+						
+						break;
+						
+						case "directory":
+						
+						break;
+						
+						case "domain":
+							
+						break;
+						
+						default:
+							if (\Environment::get('request') == $objRedirect->redirect) {
+								if ($objRedirect->target_url) {
+									$redirect = $objRedirect->target_url;
+									$redirect_code = $objRedirect->code;
+								} else {
+									$objPage = \PageModel::findByPk($objRedirect->target_page);
+									if ($objPage) {
+										$redirect = $objPage->getFrontendUrl();
+										$redirect_code = $objRedirect->code;
+									}
+								}
+							}
+						break;
+					}
+				}
+			}
+			
+			if ($redirect) {
+				\Controller::redirect($redirect, ($redirect_code ? $redirect_code : NULL));
+			}
+			
 			$this->Template->redirect = $strRedirect;
 		}
 		
