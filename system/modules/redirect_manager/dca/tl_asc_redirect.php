@@ -158,7 +158,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_asc_redirect']['code'],
 			'filter'				  => true,
 			'inputType'               => 'select',
-			'options'                 => array('301' => '301 - Moved Permanently', '302' => '302 - Found', '303' => '303 - See Other', '307' => '307 - Temporary Redirect', '418' => "I'm a Teapot"),
+			'options'                 => array('301' => '301 - Moved Permanently', '302' => '302 - Found', '303' => '303 - See Other', '307' => '307 - Temporary Redirect', '418' => "418 - I'm a Teapot"),
 			'eval'                    => array('tl_class'=>'clr w50'),
 			'sql'                     => "varchar(4) NOT NULL default ''"
         ),

@@ -64,6 +64,11 @@ class Redirect404 extends \Contao\Module
 			$this->Template->redirect = $strRedirect;
 		}
 		
+			echo \Environment::get('request') ."<br>";
+			echo \Environment::get('host') ."<br>";
+			die();
+			$this->Template->redirect = $strRedirect;
+		
 		return;
     }
 
