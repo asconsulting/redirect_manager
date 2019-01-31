@@ -56,12 +56,15 @@ class Redirect404 extends \Contao\Module
     protected function compile()
     {	
 		
-		echo \Environment::get('request') ."<br>";
-		echo \Environment::get('host') ."<br>";
-		var_dump($arrFragments);
-		die();
+		$objRedirect = RedirectModel::findBy('published', '1', array('order' => 'sorting'));
+		if ($objRedirect) {			
+			echo \Environment::get('request') ."<br>";
+			echo \Environment::get('host') ."<br>";
+			die();
+			$this->Template->redirect = $strRedirect;
+		}
 		
-		$this->Template->redirect = $strRedirect;
+		return;
     }
 
 }
