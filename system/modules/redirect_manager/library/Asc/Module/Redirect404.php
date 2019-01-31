@@ -102,7 +102,7 @@ class Redirect404 extends \Contao\Module
 							$strRedirectDomain = false;
 							$strRedirectProtocol = false;
 							
-							if (preg_match('/http[s]?:\/\//', $objRedirect->redirect, $arrProtocol) { 
+							if (preg_match('/http[s]?:\/\//', $objRedirect->redirect, $arrProtocol)) { 
 								if (substr($objRedirect->redirect, 0, count($strProtocol)) == $strProtocol) {
 									preg_match('/(http[s]?):\/\/([a-z0-9-\.]{4,})\/?/gi', $objRedirect->redirect, $arrUrl);
 									if ($arrUrl[2]) {
@@ -119,7 +119,7 @@ class Redirect404 extends \Contao\Module
 							}
 							
 							if ($objRedirect->target_url) {
-								if (preg_match('/http[s]?:\/\//', $objRedirect->target_url, $arrProtocol) { 
+								if (preg_match('/http[s]?:\/\//', $objRedirect->target_url, $arrProtocol)) { 
 									if (substr($objRedirect->target_url, 0, count($strProtocol)) == $strProtocol) {
 										preg_match('/(http[s]?):\/\/([a-z0-9-\.]{4,})\/?/gi', $objRedirect->target_url, $arrUrl);
 										if ($arrUrl[2]) {
