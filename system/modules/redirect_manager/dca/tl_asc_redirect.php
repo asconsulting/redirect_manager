@@ -98,11 +98,11 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
     'palettes' => array
     (
 		'__selector__'                => array('type'),
-        'default'                     => '{config_legend},category,type',
-		'regular'					  => '{config_legend},category,type;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
-		'regex'					 	  => '{config_legend},category,type;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
-		'directory'					  => '{config_legend},category,type;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
-		'domain'					  => '{config_legend},category,type;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop'
+        'default'                     => '{config_legend},type,category',
+		'regular'					  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
+		'regex'					 	  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
+		'directory'					  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
+		'domain'					  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop'
     ),
  
     // Fields
@@ -140,7 +140,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
             'search'                  => true,
 			'filter'				  => true,
             'inputType'               => 'text',
-            'eval'                    => array('maxlength'=>128, 'tl_class'=>'clr w50'),
+            'eval'                    => array('maxlength'=>128, 'tl_class'=>'w50'),
             'sql'                     => "varchar(128) NOT NULL default ''"
         ),
 		'type' => array
@@ -150,7 +150,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
 			'filter'				  => true,
 			'inputType'               => 'select',
 			'options'                 => array('regular' => 'Regular', 'regex' => 'Regular Expression', 'directory' => 'Directory', 'domain' => 'Domain'),
-			'eval'                    => array('submitOnChange'=>true, 'tl_class'=>'w50'),
+			'eval'                    => array('submitOnChange'=>true, 'tl_class'=>'clr w50', 'includeBlankOption'=>true),
 			'sql'                     => "varchar(32) NOT NULL default ''"
         ),
 		'code' => array
@@ -175,7 +175,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_asc_redirect']['target_page'],
 			'inputType'               => 'pageTree',
 			'foreignKey'              => 'tl_page.title',
-			'eval'                    => array('fieldType'=>'radio'),
+			'eval'                    => array('fieldType'=>'radio', 'tl_class'=>'clr w50'),
 			'sql'                     => "int(10) unsigned NOT NULL default '0'",
 			'relation'                => array('type'=>'hasOne', 'load'=>'lazy')
 		),
@@ -192,7 +192,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_asc_redirect']['domain'],
             'search'                  => true,
             'inputType'               => 'text',
-            'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
+            'eval'                    => array('maxlength'=>255, 'tl_class'=>'clr w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
 
