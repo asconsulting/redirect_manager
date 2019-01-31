@@ -154,6 +154,11 @@ class Redirect404 extends \Contao\Module
 									}
 								}
 							}
+							
+							echo $strRedirectDomain ."<br>";
+							echo $strRedirectProtocol ."<br>";
+							echo $strTargetDomain ."<br>";
+							echo $strRedirectProtocol ."<br>";
 						break;
 						
 						default:
