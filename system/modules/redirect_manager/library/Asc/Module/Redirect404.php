@@ -176,6 +176,7 @@ class Redirect404 extends \Contao\Module
 			
 			if ($redirect) {
 				var_dump($redirect);
+				die();
 				//\Controller::redirect($redirect, ($redirect_code ? $redirect_code : NULL));
 			}
 			
