@@ -24,11 +24,13 @@ class Redirect extends \Backend
 		
 		$strLabel = '<span class="category">[' .$objRedirect->category .']</span> <span class="code">' .$objRedirect->type .'</span>: <span class="redirect">' .$objRedirect->redirect ."</span>";
 		
-		if ($objRedirect['target_url']) {
-			$strLabel .= ' <span class="arrow">&rarr;</span> <span class="target">' .$objRedirect['target_url'] ."</span>";
- 		} else if ($objRedirect['target_page']) {
-			$objPage = PageModel::findByPk($objRedirect['target_page']);
-			$strLabel .= ' <span class="arrow">&rarr;</span> <span class="page">' .$objPage->title ."</span>";
+		if ($objRedirect->target_url) {
+			$strLabel .= ' <span class="arrow">&rarr;</span> <span class="target">' .$objRedirect->target_url ."</span>";
+ 		} else if ($objRedirect->target_page) {
+			$objPage = PageModel::findByPk($objRedirect->target_page);
+			if ($objPage) {
+				$strLabel .= ' <span class="arrow">&rarr;</span> <span class="page">' .$objPage->title ."</span>";
+			}
  		}	
 		$arg[0] = $strLabel; 
         
