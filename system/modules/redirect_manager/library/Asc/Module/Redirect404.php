@@ -174,6 +174,9 @@ class Redirect404 extends \Contao\Module
 				}
 			}
 			
+			echo \Environment::get('host') ."<br>";
+			echo \Environment::get('request') ."<br>";
+			
 			if ($redirect) {
 				var_dump($redirect);
 				die();
