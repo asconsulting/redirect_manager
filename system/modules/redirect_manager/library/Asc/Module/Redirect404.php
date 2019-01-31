@@ -88,12 +88,12 @@ class Redirect404 extends \Contao\Module
 						case "directory":
 							$strRedirect = trim($objRedirect->redirect, "/");
 							echo $strRedirect ."<br>";
-							echo substr(\Environment::get('request'), 0, count($strRedirect)) ."<br>";
-							if (substr(\Environment::get('request'), 0, count($strRedirect)) == $strRedirect) {// && (substr(\Environment::get('request'), count($strRedirect), 1) == "/" || \Environment::get('request') == $strRedirect)) {
+							echo substr(\Environment::get('request'), 0, strlen($strRedirect)) ."<br>";
+							if (substr(\Environment::get('request'), 0, strlen($strRedirect)) == $strRedirect && (substr(\Environment::get('request'), strlen($strRedirect), 1) == "/" || \Environment::get('request') == $strRedirect)) {
 								echo $strRedirect ."<br>";
 								if ($objRedirect->target_url) {
 									$strTarget = trim($objRedirect->target_url, "/");
-									$redirect = $strTarget .substr(\Environment::get('request'), count($strRedirect));
+									$redirect = $strTarget .substr(\Environment::get('request'), strlen($strRedirect));
 									$redirect_code = $objRedirect->code;
 								} else {
 									$objPage = \PageModel::findByPk($objRedirect->target_page);
@@ -110,7 +110,7 @@ class Redirect404 extends \Contao\Module
 							$strRedirectProtocol = false;
 							
 							if (preg_match('/http[s]?:\/\//', $objRedirect->redirect, $arrProtocol)) { 
-								if (substr($objRedirect->redirect, 0, count($strProtocol)) == $strProtocol) {
+								if (substr($objRedirect->redirect, 0, strlen($strProtocol)) == $strProtocol) {
 									preg_match('/(http[s]?):\/\/([a-z0-9-\.]{4,})\/?/gi', $objRedirect->redirect, $arrUrl);
 									if ($arrUrl[2]) {
 										$strRedirectDomain = $arrUrl[2];
@@ -127,7 +127,7 @@ class Redirect404 extends \Contao\Module
 							
 							if ($objRedirect->target_url) {
 								if (preg_match('/http[s]?:\/\//', $objRedirect->target_url, $arrProtocol)) { 
-									if (substr($objRedirect->target_url, 0, count($strProtocol)) == $strProtocol) {
+									if (substr($objRedirect->target_url, 0, strlen($strProtocol)) == $strProtocol) {
 										preg_match('/(http[s]?):\/\/([a-z0-9-\.]{4,})\/?/gi', $objRedirect->target_url, $arrUrl);
 										if ($arrUrl[2]) {
 											$strTargetDomain = $arrUrl[2];
