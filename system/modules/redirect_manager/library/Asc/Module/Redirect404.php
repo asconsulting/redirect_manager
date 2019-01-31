@@ -59,7 +59,7 @@ class Redirect404 extends \Contao\Module
 		$redirect_code = false;
 		$objRedirect = RedirectModel::findBy('published', '1', array('order' => 'sorting'));
 		if ($objRedirect) {			
-			while($objRedirect->next()) {
+			while($objRedirect->next() && !$redirect) {
 				if ($objRedirect->domain == "" || $objRedirect->domain == \Environment::get('host')) {
 					switch ($objRedirect->type) {
 						case "regex":
