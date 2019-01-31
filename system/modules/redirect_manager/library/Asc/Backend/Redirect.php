@@ -34,7 +34,7 @@ class Redirect extends \Backend
  		}	
 		$arg[0] = $strLabel; 
         
-		return $args;
+		return $strLabel;
     }
 	
 
