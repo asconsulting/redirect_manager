@@ -44,8 +44,8 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
         'label' => array
         (
             'fields' 				=> array('rule'),
-            'format' 				=> '%s',
-			'label_callback' 		=> array('Asc\Backend\Redirect', 'generateLabel')
+            'format' 				=> '%s'
+			//'label_callback' 		=> array('Asc\Backend\Redirect', 'generateLabel')
         ),
         'global_operations' => array
         (
