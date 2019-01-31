@@ -10,7 +10,7 @@
  */
 
  
-namespace Asc;
+namespace Asc\Frontend;
 
 use Asc\Model\Redirect as RedirectModel;
 
