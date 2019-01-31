@@ -88,7 +88,7 @@ class Redirect404 extends \Contao\Module
 						case "directory":
 							$strRedirect = trim($objRedirect->redirect, "/");
 							echo $strRedirect ."<br>";
-							if (substr(\Environment::get('request'), 0, count($strRedirect)) == $strRedirect && (substr(\Environment::get('request'), count($strRedirect), 1) == "/" || \Environment::get('request') == $strRedirect)) {
+							if (substr(\Environment::get('request'), 0, count($strRedirect)) == $strRedirect) {// && (substr(\Environment::get('request'), count($strRedirect), 1) == "/" || \Environment::get('request') == $strRedirect)) {
 								echo $strRedirect ."<br>";
 								if ($objRedirect->target_url) {
 									$strTarget = trim($objRedirect->target_url, "/");
