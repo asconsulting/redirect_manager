@@ -19,6 +19,6 @@ class Redirect extends \Model
 	 * Table name
 	 * @var string
 	 */
-	protected static $strTable = 'tl_redirect_manager';
+	protected static $strTable = 'tl_asc_redirect';
 	
 }
