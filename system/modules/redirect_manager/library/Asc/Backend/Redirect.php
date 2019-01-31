@@ -18,6 +18,12 @@ use Contao\PageModel;
 class Redirect extends \Backend
 {
 
+	public function updatePublished()
+	{
+		\Database::getInstance()->prepare("UPDATE tl_asc_redirect SET published='1' WHERE start < ? AND start > 0 AND (stop > ? OR stop = 0)")->execute(time(), time());
+		\Database::getInstance()->prepare("UPDATE tl_asc_redirect SET published='' WHERE stop < ? AND stop > 0")->execute(time());
+	}
+
     public function generateLabel($row, $label, $dc, $args)
     {
         $objRedirect = RedirectModel::findByPk($row['id']);

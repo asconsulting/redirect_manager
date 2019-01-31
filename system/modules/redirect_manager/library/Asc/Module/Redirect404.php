@@ -55,6 +55,10 @@ class Redirect404 extends \Contao\Module
      */
     protected function compile()
     {	
+		
+		\Database::getInstance()->prepare("UPDATE tl_asc_redirect SET published='1' WHERE start < ? AND start > 0 AND (stop > ? OR stop = 0)")->execute(time(), time());
+		\Database::getInstance()->prepare("UPDATE tl_asc_redirect SET published='' WHERE stop < ? AND stop > 0")->execute(time());
+		
 		$strProtocol = (\Environment::get('ssl') ? "https" : "http");
 		$redirect = false;
 		$redirect_code = false;

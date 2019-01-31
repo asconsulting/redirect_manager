@@ -21,6 +21,10 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
     (
         'dataContainer'               => 'Table',
         'enableVersioning'            => true,
+		'onload_callback'             => array
+		(
+			array('Asc\Backend\Redirect', 'updatePublished')
+		),
         'sql' => array
         (
             'keys' => array

@@ -19,6 +19,12 @@ use Asc\Model\Redirect as RedirectModel;
  */
 class Redirect {
 	
+	public function updatePublished()
+	{
+		\Database::getInstance()->prepare("UPDATE tl_asc_redirect SET published='1' WHERE start < ? AND (stop > ? OR stop = 0)")->execute(time(), time());
+		\Database::getInstance()->prepare("UPDATE tl_asc_redirect SET published='' WHERE stop < ? ")->execute(time());
+	}
+	
 	public function lookupRedirect($arrFragments)
     {
 		echo \Environment::get('request') ."<br>";
