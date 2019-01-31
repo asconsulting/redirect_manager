@@ -149,6 +149,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
 			'default'                 => 'regular',
 			'filter'				  => true,
 			'inputType'               => 'select',
+			'options'                 => array('regular' => 'Regular', 'regex' => 'Regular Expression', 'directory' => 'Directory', 'domain' => 'Domain'),
 			'eval'                    => array('submitOnChange'=>true, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(32) NOT NULL default ''"
         ),
