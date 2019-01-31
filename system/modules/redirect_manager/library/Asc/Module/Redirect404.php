@@ -12,7 +12,7 @@
  
 namespace Asc\Module;
  
-use Asc\Model\Redirect;
+use Asc\Model\Redirect as RedirectModel;
  
 /**
  * Class Asc\Module\DirectoryReader
