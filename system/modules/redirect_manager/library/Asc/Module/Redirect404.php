@@ -66,6 +66,7 @@ class Redirect404 extends \Contao\Module
 		if ($objRedirect) {			
 			while($objRedirect->next() && !$redirect) {
 				if ($objRedirect->domain == "" || $objRedirect->domain == \Environment::get('host')) {
+					var_dump($objRedirect);
 					switch ($objRedirect->type) {
 						case "regex":
 							if (preg_match($objRedirect->redirect, \Environment::get('request'), $arrMatches)) {
