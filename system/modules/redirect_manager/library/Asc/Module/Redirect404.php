@@ -107,29 +107,29 @@ class Redirect404 extends \Contao\Module
 							$strRedirectDomain = false;
 							$strRedirectProtocol = false;
 							
-							if (preg_match('/http[s]?:\/\//i', $objRedirect->redirect)) { 
-								preg_match_all('/(http[s]?):\/\/([a-z0-9-\.]{4,})\/?/i', $objRedirect->redirect, $arrUrl);
+							if (preg_match('/http[s]?:\/\//i', $objRedirect->redirect_domain)) { 
+								preg_match_all('/(http[s]?):\/\/([a-z0-9-\.]{4,})\/?/i', $objRedirect->redirect_domain, $arrUrl);
 								if ($arrUrl[2]) {
 									$strRedirectDomain = $arrUrl[2][0];
 									$strRedirectProtocol = $arrUrl[1][0];
 								}
 							} else {
-								$arrUrl = explode('/', $objRedirect->redirect);
+								$arrUrl = explode('/', $objRedirect->redirect_domain);
 								if (preg_match('/[a-z0-9-\.]{4,}\/?/i', $arrUrl[0])) {
 									$strRedirectDomain = $arrUrl[0];
 									$strRedirectProtocol = $strProtocol;
 								}
 							}
 							
-							if ($objRedirect->target_url != "") {
-								if (preg_match('/http[s]?:\/\//i', $objRedirect->target_url)) { 
-									preg_match_all('/(http[s]?):\/\/([a-z0-9-\.]{4,})\/?/i', $objRedirect->target_url, $arrUrl);
+							if ($objRedirect->target_domain != "") {
+								if (preg_match('/http[s]?:\/\//i', $objRedirect->target_domain)) { 
+									preg_match_all('/(http[s]?):\/\/([a-z0-9-\.]{4,})\/?/i', $objRedirect->target_domain, $arrUrl);
 									if ($arrUrl[2]) {
 										$strTargetDomain = $arrUrl[2][0];
 										$strTargetProtocol = $arrUrl[1][0];
 									}								
 								} else {
-									$arrUrl = explode('/', $objRedirect->target_url);
+									$arrUrl = explode('/', $objRedirect->target_domain);
 									if (preg_match('/([a-z0-9-\.]{4,})\/?/i', $arrUrl[0])) {
 										$strTargetDomain = $arrUrl[0];
 										$strTargetProtocol = $strProtocol;
@@ -138,7 +138,7 @@ class Redirect404 extends \Contao\Module
 							}
 							
 							if ($strRedirectDomain == \Environment::get('host')) {
-								if ($objRedirect->target_url != "") {
+								if ($objRedirect->target_domain != "") {
 									if ($strTargetProtocol != $strRedirectProtocol || $strTargetDomain != $strRedirectDomain) {
 										$redirect = $strTargetProtocol .'://' .$strTargetDomain .'/' .\Environment::get('request');
 										$redirect_code = $objRedirect->code;

@@ -17,6 +17,8 @@ $GLOBALS['TL_LANG']['tl_asc_redirect']['category'] 			= array('Category', 'Arbit
 $GLOBALS['TL_LANG']['tl_asc_redirect']['type'] 				= array('Type', 'Type of Redirect');
 $GLOBALS['TL_LANG']['tl_asc_redirect']['code'] 				= array('Code', 'HTTP Status code. <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank">List of Status Codes</a>');
 $GLOBALS['TL_LANG']['tl_asc_redirect']['redirect'] 			= array('Redirect', 'Enter the old URL or patern to match.');
+$GLOBALS['TL_LANG']['tl_asc_redirect']['redirect_domain'] 	= array('Redirect Domain', 'Enter the old domain.');
+$GLOBALS['TL_LANG']['tl_asc_redirect']['target_domain'] 	= array('Target Domain', 'Enter the new/target domain.');
 $GLOBALS['TL_LANG']['tl_asc_redirect']['target_page'] 		= array('Target Page', 'Please enter the title.');
 $GLOBALS['TL_LANG']['tl_asc_redirect']['target_url'] 		= array('Target URL', 'Enter redirect target. Overrides Target Page attribute. Use $1 format for regex matches.');
 $GLOBALS['TL_LANG']['tl_asc_redirect']['domain'] 			= array('Domain', 'Limit this redirect to this domain only.');
