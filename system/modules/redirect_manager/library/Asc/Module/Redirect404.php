@@ -125,8 +125,8 @@ class Redirect404 extends \Contao\Module
 							}
 							
 							if ($objRedirect->target_url != "") {
-								var_dump($objRedirect->target_url);
 								if (preg_match('/http[s]?:\/\//i', $objRedirect->target_url, $arrProtocol)) { 
+									echo substr($objRedirect->target_url, 0, strlen($strProtocol)) ."<br><hr>";
 									if (substr($objRedirect->target_url, 0, strlen($strProtocol)) == $strProtocol) {
 										preg_match('/(http[s]?):\/\/([a-z0-9-\.]{4,})\/?/gi', $objRedirect->target_url, $arrUrl);
 										if ($arrUrl[2]) {
