@@ -138,7 +138,7 @@ class Redirect404 extends \Contao\Module
 							}
 							
 							if ($strRedirectDomain == \Environment::get('host')) {
-								
+								echo "<hr><h4>Trigger</h4>";
 								if ($objRedirect->target_url != "") {
 									if ($strTargetProtocol != $strRedirectProtocol && $strTargetDomain != $strRedirectDomain) {
 										$redirect = $strTargetProtocol .'://' .$strTargetDomain .'/' .\Environment::get('request');
