@@ -106,7 +106,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
 		'regular'					  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
 		'regex'					 	  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
 		'directory'					  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
-		'domain'					  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_url;{publish_legend},published,start,stop'
+		'domain'					  => '{config_legend},type,category;{redirect_legend},code,redirect_domain,target_domain;{publish_legend},published,start,stop'
     ),
  
     // Fields
