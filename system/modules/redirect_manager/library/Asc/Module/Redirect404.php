@@ -124,7 +124,7 @@ class Redirect404 extends \Contao\Module
 							
 							if ($objRedirect->target_url != "") {
 								if (preg_match('/http[s]?:\/\//i', $objRedirect->target_url)) { 
-									preg_match('/(http[s]?):\/\/([a-z0-9-\.]{4,})\/?/gi', $objRedirect->target_url, $arrUrl);
+									preg_match_all('/(http[s]?):\/\/([a-z0-9-\.]{4,})\/?/gi', $objRedirect->target_url, $arrUrl);
 									var_dump($arrUrl);
 									if ($arrUrl[2]) {
 										$strTargetDomain = $arrUrl[2];
