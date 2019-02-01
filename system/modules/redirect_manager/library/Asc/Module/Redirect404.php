@@ -116,6 +116,7 @@ class Redirect404 extends \Contao\Module
 								}
 							} else {
 								$arrUrl = explode('/', $objRedirect->redirect);
+								var_dump($arrUrl);
 								if (preg_match('/[a-z0-9-\.]{4,}\/?/i', $arrUrl[0])) {
 									$strRedirectDomain = $arrUrl[0];
 									$strRedirectProtocol = $strProtocol;
