@@ -106,7 +106,7 @@ class Redirect404 extends \Contao\Module
 							$strRedirectDomain = false;
 							$strRedirectProtocol = false;
 							
-							if (preg_match('/http[s]?:\/\//i', $objRedirect->redirect, $arrProtocol) !== false) { 
+							if (preg_match('/http[s]?:\/\//i', $objRedirect->redirect, $arrProtocol)) { 
 								if (substr($objRedirect->redirect, 0, strlen($strProtocol)) == $strProtocol) {
 									preg_match('/(http[s]?):\/\/([a-z0-9-\.]{4,})\/?/gi', $objRedirect->redirect, $arrUrl);
 									if ($arrUrl[2]) {
@@ -116,14 +116,14 @@ class Redirect404 extends \Contao\Module
 								}
 							} else {
 								$arrUrl = explode('/', $objRedirect->redirect);
-								if (preg_match('/[a-z0-9-\.]{4,}\/?/i', $arrUrl[0]) !== false) {
+								if (preg_match('/[a-z0-9-\.]{4,}\/?/i', $arrUrl[0])) {
 									$strRedirectDomain = $arrUrl[0];
 									$strRedirectProtocol = $strProtocol;
 								}
 							}
 							
 							if ($objRedirect->target_url) {
-								if (preg_match('/http[s]?:\/\//i', $objRedirect->target_url, $arrProtocol) !== false) { 
+								if (preg_match('/http[s]?:\/\//i', $objRedirect->target_url, $arrProtocol)) { 
 									if (substr($objRedirect->target_url, 0, strlen($strProtocol)) == $strProtocol) {
 										preg_match('/(http[s]?):\/\/([a-z0-9-\.]{4,})\/?/gi', $objRedirect->target_url, $arrUrl);
 										if ($arrUrl[2]) {
@@ -133,7 +133,7 @@ class Redirect404 extends \Contao\Module
 									}
 								} else {
 									$arrUrl = explode('/', $objRedirect->target_url);
-									if (preg_match('/([a-z0-9-\.]{4,})\/?/i', $arrUrl[0]) !== false) {
+									if (preg_match('/([a-z0-9-\.]{4,})\/?/i', $arrUrl[0])) {
 										$strTargetDomain = $arrUrl[0];
 										$strTargetProtocol = $strProtocol;
 									}
