@@ -29,13 +29,7 @@ array_insert($GLOBALS['BE_MOD']['redirect_manager'], 0, array
 
 
 // Front end modules
-$GLOBALS['FE_MOD'] = array
-(
-	'redirect_manager' => array
-	(
-		'redirect_404'     => 'Asc\Module\Redirect404'
-	)
-);
+$GLOBALS['FE_MOD']['redirect_manager'] = array('redirect_404' => 'Asc\Module\Redirect404');
 
 /**
  * Models
