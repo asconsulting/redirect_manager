@@ -20,3 +20,12 @@ ClassLoader::addClasses(array
     'Asc\Backend\Redirect' 		=> 'system/modules/redirect_manager/library/Asc/Backend/Redirect.php',
     'Asc\Module\Redirect404' 	=> 'system/modules/redirect_manager/library/Asc/Backend/Redirect404.php',
 ));
+
+
+/**
+ * Register the templates
+ */
+TemplateLoader::addFiles(array
+(
+	'mod_redirect_manager' 			=> 'system/modules/redirect_manager/templates/modules'
+));
