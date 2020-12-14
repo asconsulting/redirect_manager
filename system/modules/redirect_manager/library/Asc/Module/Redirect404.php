@@ -179,13 +179,13 @@ class Redirect404 extends \Contao\Module
 				}
 			}
 			
-			//echo \Environment::get('host') ."<br>";
-			//echo \Environment::get('request') ."<br>";
+			echo \Environment::get('host') ."<br>";
+			echo \Environment::get('request') ."<br>";
 			
 			if ($redirect) {
-				//var_dump($redirect);
-				//die();
-				\Controller::redirect($redirect, ($redirect_code ? $redirect_code : NULL));
+				var_dump($redirect);
+				die();
+				//\Controller::redirect($redirect, ($redirect_code ? $redirect_code : NULL));
 			}
 			
 			$this->Template->redirect = $strRedirect;
