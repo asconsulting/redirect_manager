@@ -24,7 +24,7 @@ use Contao\PageModel;
 
 
 /**
- * Class Asc\Module\DirectoryReader
+ * Class RedirectManager\Module\DirectoryReader
  */
 class Redirect404 extends Contao_Module
 {

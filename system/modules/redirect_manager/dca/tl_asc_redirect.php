@@ -24,7 +24,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
         'enableVersioning'            => true,
 		'onload_callback'             => array
 		(
-			array('Asc\Backend\Redirect', 'updatePublished')
+			array('RedirectManager\Backend\Redirect', 'updatePublished')
 		),
         'sql' => array
         (
@@ -50,7 +50,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
         (
             'fields' 				=> array('rule'),
             'format' 				=> '%s',
-			'label_callback' 		=> array('Asc\Backend\Redirect', 'generateLabel')
+			'label_callback' 		=> array('RedirectManager\Backend\Redirect', 'generateLabel')
         ),
         'global_operations' => array
         (
@@ -88,7 +88,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
 				'label'               => &$GLOBALS['TL_LANG']['tl_asc_redirect']['toggle'],
 				'icon'                => 'visible.gif',
 				'attributes'          => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
-				'button_callback'     => array('Asc\Backend\Redirect', 'toggleIcon')
+				'button_callback'     => array('RedirectManager\Backend\Redirect', 'toggleIcon')
 			),
             'show' => array
             (
@@ -134,7 +134,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
 			'eval'                    => array('unique'=>true, 'rgxp'=>'alias', 'doNotCopy'=>true, 'maxlength'=>128, 'tl_class'=>'w50'),
 			'save_callback' => array
 			(
-				array('Asc\Backend\Redirect', 'generateAlias')
+				array('RedirectManager\Backend\Redirect', 'generateAlias')
 			),
 			'sql'                     => "varchar(255) BINARY NOT NULL default ''"
 

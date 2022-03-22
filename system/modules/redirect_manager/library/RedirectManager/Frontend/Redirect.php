@@ -21,7 +21,7 @@ use Contao\Database;
 
 
 /**
- * Class Asc\DirectoryPage
+ * Class RedirectManager\DirectoryPage
  */
 class Redirect extends Contao_Frontend {
 
