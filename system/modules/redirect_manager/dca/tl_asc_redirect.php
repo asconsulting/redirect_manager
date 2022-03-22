@@ -136,7 +136,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
 			(
 				array('Asc\Backend\Redirect', 'generateAlias')
 			),
-			'sql'                     => "varchar(128) COLLATE utf8_bin NOT NULL default ''"
+			'sql'                     => "varchar(255) BINARY NOT NULL default ''"
 
 		),
 		'category' => array
