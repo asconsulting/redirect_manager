@@ -1,35 +1,44 @@
 <?php
- 
+
 /**
  * Redirect Manager
  *
- * Copyright (C) 2019 Andrew Stevens Consulting
+ * Copyright (C) 2019-2022 Andrew Stevens Consulting
  *
  * @package    asconsulting/redirect_manager
  * @link       https://andrewstevens.consulting
  */
 
- 
-namespace Asc\Backend;
 
-use Asc\Model\Redirect as RedirectModel;
+
+namespace RedirectManager\Backend;
+
+use RedirectManager\Model\Redirect as RedirectModel;
+
+use Contao\Backend as Contao_Backend;
+use Contao\Database;
+use Contao\Datacontainer;
+use Contao\Image;
+use Contao\Input;
 use Contao\PageModel;
+use Contao\Versions;
 
-class Redirect extends \Backend
+
+class Redirect extends Contao_Backend
 {
 
 	public function updatePublished()
 	{
-		\Database::getInstance()->prepare("UPDATE tl_asc_redirect SET published='1' WHERE IF(start = '', 0, CONVERT(start, UNSIGNED)) < ? AND IF(start = '', 0, CONVERT(start, UNSIGNED)) > 0 AND (IF(stop = '', 0, CONVERT(stop, UNSIGNED)) > ? OR IF(stop = '', 0, CONVERT(stop, UNSIGNED)) = 0)")->execute(time(), time());
-		\Database::getInstance()->prepare("UPDATE tl_asc_redirect SET published='' WHERE IF(stop = '', 0, CONVERT(stop, UNSIGNED)) < ? AND IF(stop = '', 0, CONVERT(stop, UNSIGNED)) > 0")->execute(time());
+		Database::getInstance()->prepare("UPDATE tl_asc_redirect SET published='1' WHERE IF(start = '', 0, CONVERT(start, UNSIGNED)) < ? AND IF(start = '', 0, CONVERT(start, UNSIGNED)) > 0 AND (IF(stop = '', 0, CONVERT(stop, UNSIGNED)) > ? OR IF(stop = '', 0, CONVERT(stop, UNSIGNED)) = 0)")->execute(time(), time());
+		Database::getInstance()->prepare("UPDATE tl_asc_redirect SET published='' WHERE IF(stop = '', 0, CONVERT(stop, UNSIGNED)) < ? AND IF(stop = '', 0, CONVERT(stop, UNSIGNED)) > 0")->execute(time());
 	}
 
     public function generateLabel($row, $label, $dc, $args)
     {
         $objRedirect = RedirectModel::findByPk($row['id']);
-		
+
 		$strLabel = '<span class="category">[' .$objRedirect->category .']</span> <span class="code">' .$objRedirect->type .'</span>: <span class="redirect">' .$objRedirect->redirect ."</span>";
-		
+
 		if ($objRedirect->target_url) {
 			$strLabel .= ' <span class="arrow">&rarr;</span> <span class="target">' .$objRedirect->target_url ."</span>";
  		} else if ($objRedirect->target_page) {
@@ -37,18 +46,18 @@ class Redirect extends \Backend
 			if ($objPage) {
 				$strLabel .= ' <span class="arrow">&rarr;</span> <span class="page">' .$objPage->title ."</span>";
 			}
- 		}	
-		$arg[0] = $strLabel; 
-        
+ 		}
+		$arg[0] = $strLabel;
+
 		return $strLabel;
     }
-	
+
 
 	public function toggleIcon($row, $href, $label, $title, $icon, $attributes)
 	{
-		if (strlen(\Input::get('tid')))
+		if (strlen(Input::get('tid')))
 		{
-			$this->toggleVisibility(\Input::get('tid'), (\Input::get('state') == 1), (@func_get_arg(12) ?: null));
+			$this->toggleVisibility(Input::get('tid'), (Input::get('state') == 1), (@func_get_arg(12) ?: null));
 			$this->redirect($this->getReferer());
 		}
 
@@ -59,13 +68,13 @@ class Redirect extends \Backend
 			$icon = 'invisible.gif';
 		}
 
-		return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ';
-	}	
-	
+		return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ';
+	}
 
-	public function toggleVisibility($intId, $blnVisible, \DataContainer $dc=null)
+
+	public function toggleVisibility($intId, $blnVisible, DataContainer $dc=null)
 	{
-		$objVersions = new \Versions('tl_redirect_manager', $intId);
+		$objVersions = new Versions('tl_redirect_manager', $intId);
 		$objVersions->initialize();
 
 		// Trigger the save_callback
@@ -91,6 +100,6 @@ class Redirect extends \Backend
 
 		$objVersions->create();
 		$this->log('A new version of record "tl_redirect_manager.id='.$intId.'" has been created'.$this->getParentEntries('tl_redirect_manager', $intId), __METHOD__, TL_GENERAL);
-	}	
-	
+	}
+
 }

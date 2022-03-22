@@ -1,24 +1,25 @@
 <?php
- 
+
 /**
  * Redirect Manager
  *
- * Copyright (C) 2019 Andrew Stevens Consulting
+ * Copyright (C) 2019-2022 Andrew Stevens Consulting
  *
  * @package    asconsulting/redirect_manager
  * @link       https://andrewstevens.consulting
  */
 
- 
+
+
 /**
  * Register the classes
  */
 ClassLoader::addClasses(array
 (
-    'Asc\Model\Redirect' 		=> 'system/modules/redirect_manager/library/Asc/Model/Redirect.php',
-    'Asc\Frontend\Redirect' 	=> 'system/modules/redirect_manager/library/Asc/Frontend/Redirect.php',
-    'Asc\Backend\Redirect' 		=> 'system/modules/redirect_manager/library/Asc/Backend/Redirect.php',
-    'Asc\Module\Redirect404' 	=> 'system/modules/redirect_manager/library/Asc/Backend/Redirect404.php',
+    'RedirectManager\Model\Redirect' 		=> 'system/modules/redirect_manager/library/RedirectManager/Model/Redirect.php',
+    'RedirectManager\Frontend\Redirect' 	=> 'system/modules/redirect_manager/library/RedirectManager/Frontend/Redirect.php',
+    'RedirectManager\Backend\Redirect' 		=> 'system/modules/redirect_manager/library/RedirectManager/Backend/Redirect.php',
+    'RedirectManager\Module\Redirect404' 	=> 'system/modules/redirect_manager/library/RedirectManager/Backend/Redirect404.php',
 ));
 
 

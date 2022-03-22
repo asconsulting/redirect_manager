@@ -1,6 +1,6 @@
 {
     "name":"asconsulting/redirect_manager",
-    "description":"URL redirection module for Contao 4.4+",
+    "description":"URL redirection module for Contao 4.9+",
     "homepage": "https://andrewstevens.consulting",
     "keywords":["contao", "htaccess", ".htaccess", "redirect", "rewrite", "url", "301", "302"],
     "type":"contao-module",
@@ -12,17 +12,17 @@
         }
     ],
     "require":{
-        "php": "~5.4 || ~7.0",
-        "contao/core-bundle": "^3.5.2 || ~4.4",
+        "php": ">=7.3",
+        "contao/core-bundle": "^4.9",
         "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
     },
     "require-dev": {
         "contao/manager-plugin": "^2.0"
     },
     "autoload": {
-        "psr-0": {
-            "Asc\\": [
-                "system/modules/redirect_manager/library"
+        "psr-4": {
+            "RedirectManager\\": [
+                "system/modules/redirect_manager/library/RedirectManager"
             ]
         }
     },

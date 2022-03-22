@@ -1,15 +1,16 @@
 <?php
- 
+
 /**
  * Redirect Manager
  *
- * Copyright (C) 2019 Andrew Stevens Consulting
+ * Copyright (C) 2019-2022 Andrew Stevens Consulting
  *
  * @package    asconsulting/redirect_manager
  * @link       https://andrewstevens.consulting
  */
 
-  
+
+
 /**
  * Fields
  */
@@ -34,8 +35,8 @@ $GLOBALS['TL_LANG']['tl_asc_redirect']['config_legend'] 	= 'Redirect details';
 $GLOBALS['TL_LANG']['tl_asc_redirect']['redirect_legend'] 	= 'Redirect configuration';
 $GLOBALS['TL_LANG']['tl_asc_redirect']['domain_legend'] 	= 'Domain restrictions';
 $GLOBALS['TL_LANG']['tl_asc_redirect']['publish_legend'] 	= 'Publish';
- 
- 
+
+
 /**
  * Buttons
  */

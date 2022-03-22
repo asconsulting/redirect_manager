@@ -1,21 +1,22 @@
 <?php
- 
+
 /**
  * Redirect Manager
  *
- * Copyright (C) 2019 Andrew Stevens Consulting
+ * Copyright (C) 2019-2022 Andrew Stevens Consulting
  *
  * @package    asconsulting/redirect_manager
  * @link       https://andrewstevens.consulting
  */
 
- 
+
+
 /**
  * Table tl_asc_redirect
  */
 $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
 (
- 
+
     // Config
     'config' => array
     (
@@ -34,7 +35,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
             )
         )
     ),
- 
+
     // List
     'list' => array
     (
@@ -97,7 +98,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
             )
         )
     ),
- 
+
     // Palettes
     'palettes' => array
     (
@@ -108,7 +109,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
 		'directory'					  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
 		'domain'					  => '{config_legend},type,category;{redirect_legend},code,redirect_domain,target_domain;{publish_legend},published,start,stop'
     ),
- 
+
     // Fields
     'fields' => array
     (

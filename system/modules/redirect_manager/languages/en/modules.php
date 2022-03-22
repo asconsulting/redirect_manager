@@ -3,14 +3,15 @@
 /**
  * Redirect Manager
  *
- * Copyright (C) 2019 Andrew Stevens Consulting
+ * Copyright (C) 2019-2022 Andrew Stevens Consulting
  *
  * @package    asconsulting/redirect_manager
  * @link       https://andrewstevens.consulting
  */
- 
- 
- /**
+
+
+
+/**
  * Front end modules
  */
 $GLOBALS['TL_LANG']['FMD']['redirect_manager'] 	= "Redirect Manager";
