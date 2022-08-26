@@ -205,7 +205,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_asc_redirect']['target_url'],
             'search'                  => true,
             'inputType'               => 'text',
-            'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
+            'eval'                    => array('decodeEntities'=>false, 'maxlength'=>255, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
 		'domain' => array
