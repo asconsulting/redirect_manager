@@ -104,9 +104,9 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
     (
 		'__selector__'                => array('type'),
         'default'                     => '{config_legend},type,category',
-		'regular'					  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
-		'regex'					 	  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
-		'directory'					  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
+		'regular'					  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_file,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
+		'regex'					 	  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_file,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
+		'directory'					  => '{config_legend},type,category;{redirect_legend},code,redirect,target_page,target_file,target_url;{domain_legend},domain;{publish_legend},published,start,stop',
 		'domain'					  => '{config_legend},type,category;{redirect_legend},code,redirect_domain,target_domain;{publish_legend},published,start,stop'
     ),
 
@@ -196,16 +196,23 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_asc_redirect']['target_page'],
 			'inputType'               => 'pageTree',
 			'foreignKey'              => 'tl_page.title',
-			'eval'                    => array('fieldType'=>'radio', 'tl_class'=>'clr w50'),
+			'eval'                    => array('fieldType'=>'radio', 'tl_class'=>'clr'),
 			'sql'                     => "int(10) unsigned NOT NULL default '0'",
 			'relation'                => array('type'=>'hasOne', 'load'=>'lazy')
+		),
+		'target_file' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_asc_redirect']['target_file'],
+			'inputType'               => 'fileTree',
+			'eval'                    => array('filesOnly'=>true, 'fieldType'=>'radio', 'tl_class'=>'clr'),
+			'sql'                     => "binary(16) NULL"
 		),
 		'target_url' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_asc_redirect']['target_url'],
             'search'                  => true,
             'inputType'               => 'text',
-            'eval'                    => array('decodeEntities'=>false, 'maxlength'=>255, 'tl_class'=>'w50'),
+            'eval'                    => array('decodeEntities'=>false, 'maxlength'=>255, 'tl_class'=>'clr w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
 		'domain' => array

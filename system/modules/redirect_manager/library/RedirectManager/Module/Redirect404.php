@@ -167,13 +167,23 @@ class Redirect404 extends Contao_Module
 								if ($objRedirect->target_url) {
 									$redirect = $objRedirect->target_url;
 									$redirect_code = $objRedirect->code;
-								} else {
+								} else if ($objRedirect->target_page) {
 									$objPage = PageModel::findByPk($objRedirect->target_page);
 									if ($objPage) {
 										$redirect = $objPage->getFrontendUrl();
 										$redirect_code = $objRedirect->code;
 									}
+								} else if ($objRedirect->target_file) {
+									$objFile = FilesModel::findByUuid($objRedirect->target_file);
+									if ($objFile) {
+										$redirect = Environment::get('base') .'/' .$objFile->path;
+										$redirect_code = $objRedirect->code;
+									}
 								}
+								
+								
+								
+			
 							}
 						break;
 					}

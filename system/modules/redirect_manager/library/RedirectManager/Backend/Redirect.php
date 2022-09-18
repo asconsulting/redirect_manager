@@ -18,6 +18,7 @@ use RedirectManager\Model\Redirect as RedirectModel;
 use Contao\Backend as Contao_Backend;
 use Contao\Database;
 use Contao\Datacontainer;
+use Contao\FilesModel;
 use Contao\Image;
 use Contao\Input;
 use Contao\PageModel;
@@ -45,6 +46,11 @@ class Redirect extends Contao_Backend
 			$objPage = PageModel::findByPk($objRedirect->target_page);
 			if ($objPage) {
 				$strLabel .= ' <span class="arrow">&rarr;</span> <span class="page">' .$objPage->title ."</span>";
+			}
+ 		} else if ($objRedirect->target_file) {
+			$objFile = FilesModel::findByUuid($objRedirect->target_file);
+			if ($objFile) {
+				$strLabel .= ' <span class="arrow">&rarr;</span> <span class="file">' .$objFile->path ."</span>";
 			}
  		}
 		$arg[0] = $strLabel;
