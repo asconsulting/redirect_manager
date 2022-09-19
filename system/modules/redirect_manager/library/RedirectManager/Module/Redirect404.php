@@ -19,6 +19,7 @@ use Contao\BackendTemplate;
 use Contao\Controller;
 use Contao\Database;
 use Contao\Environment;
+use Contao\FilesModel;
 use Contao\Module as Contao_Module;
 use Contao\PageModel;
 
