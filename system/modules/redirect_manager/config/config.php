@@ -14,7 +14,7 @@
 /**
  * Back end modules
  */
-if (!is_array($GLOBALS['BE_MOD']['redirect_manager']))
+if (!array_key_exists('redirect_manager', $GLOBALS['BE_MOD']))
 {
     array_insert($GLOBALS['BE_MOD'], 1, array('redirect_manager' => array()));
 }
