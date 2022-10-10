@@ -195,7 +195,7 @@ class Redirect404 extends Contao_Module
 				Controller::redirect($redirect, ($redirect_code ? $redirect_code : NULL));
 			}
 
-			$this->Template->redirect = $strRedirect;
+			$this->Template->redirect = $redirect;
 		}
 
 		return;
