@@ -54,6 +54,6 @@ class RedirectLabelCallbackListener
  		}
 		$labels[0] = $strLabel;
 
-		return $strLabel;
+		return $labels;
     }
 }
