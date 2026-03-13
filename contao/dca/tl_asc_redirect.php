@@ -11,6 +11,8 @@
 
 
 
+use Contao\DC_Table;
+
 /**
  * Table tl_asc_redirect
  */
@@ -20,7 +22,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
     // Config
     'config' => array
     (
-        'dataContainer'               => 'Table',
+        'dataContainer'               => DC_Table::class,
         'enableVersioning'            => true,
         'sql' => array
         (
