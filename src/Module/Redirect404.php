@@ -3,7 +3,7 @@
 /**
  * Redirect Manager
  *
- * Copyright (C) 2019-2022 Andrew Stevens Consulting
+ * Copyright (C) 2019-2026 Andrew Stevens Consulting
  *
  * @package    asconsulting/redirect_manager
  * @link       https://andrewstevens.consulting
@@ -22,6 +22,7 @@ use Contao\Environment;
 use Contao\FilesModel;
 use Contao\Module as Contao_Module;
 use Contao\PageModel;
+use Contao\System;
 
 
 /**
@@ -43,7 +44,8 @@ class Redirect404 extends Contao_Module
      */
     public function generate()
     {
-        if (TL_MODE == 'BE')
+        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
+        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request))
         {
             $objTemplate = new BackendTemplate('be_wildcard');
 

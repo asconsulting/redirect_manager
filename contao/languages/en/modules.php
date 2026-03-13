@@ -3,7 +3,7 @@
 /**
  * Redirect Manager
  *
- * Copyright (C) 2019-2022 Andrew Stevens Consulting
+ * Copyright (C) 2019-2026 Andrew Stevens Consulting
  *
  * @package    asconsulting/redirect_manager
  * @link       https://andrewstevens.consulting

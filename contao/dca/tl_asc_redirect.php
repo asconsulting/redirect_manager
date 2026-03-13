@@ -3,7 +3,7 @@
 /**
  * Redirect Manager
  *
- * Copyright (C) 2019-2022 Andrew Stevens Consulting
+ * Copyright (C) 2019-2026 Andrew Stevens Consulting
  *
  * @package    asconsulting/redirect_manager
  * @link       https://andrewstevens.consulting
@@ -22,16 +22,11 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
     (
         'dataContainer'               => 'Table',
         'enableVersioning'            => true,
-		'onload_callback'             => array
-		(
-			array('RedirectManager\Backend\Redirect', 'updatePublished')
-		),
         'sql' => array
         (
             'keys' => array
             (
-                'id' => 'primary',
-                'alias' => 'index'
+                'id' => 'primary'
             )
         )
     ),
@@ -49,8 +44,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
         'label' => array
         (
             'fields' 				=> array('rule'),
-            'format' 				=> '%s',
-			'label_callback' 		=> array('RedirectManager\Backend\Redirect', 'generateLabel')
+            'format' 				=> '%s'
         ),
         'global_operations' => array
         (
@@ -64,38 +58,11 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
         ),
         'operations' => array
         (
-            'edit' => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_asc_redirect']['edit'],
-                'href'                => 'act=edit',
-                'icon'                => 'edit.gif'
-            ),
-            'copy' => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_asc_redirect']['copy'],
-                'href'                => 'act=copy',
-                'icon'                => 'copy.gif'
-            ),
-            'delete' => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_asc_redirect']['delete'],
-                'href'                => 'act=delete',
-                'icon'                => 'delete.gif',
-                'attributes'          => 'onclick="if(!confirm(\'' . ($GLOBALS['TL_LANG']['MSC']['deleteConfirm'] ?? '') . '\'))return false;Backend.getScrollOffset()"'
-            ),
-            'toggle' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_asc_redirect']['toggle'],
-				'icon'                => 'visible.gif',
-				'attributes'          => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
-				'button_callback'     => array('RedirectManager\Backend\Redirect', 'toggleIcon')
-			),
-            'show' => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_asc_redirect']['show'],
-                'href'                => 'act=show',
-                'icon'                => 'show.gif'
-            )
+            'edit',
+            'copy',
+            'delete',
+            'toggle',
+			'show'
         )
     ),
 
@@ -125,20 +92,6 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
         (
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
-		'alias' => array
-		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_asc_redirect']['alias'],
-			'exclude'                 => true,
-			'inputType'               => 'text',
-			'search'                  => true,
-			'eval'                    => array('unique'=>true, 'rgxp'=>'alias', 'doNotCopy'=>true, 'maxlength'=>128, 'tl_class'=>'w50'),
-			'save_callback' => array
-			(
-				array('RedirectManager\Backend\Redirect', 'generateAlias')
-			),
-			'sql'                     => "varchar(255) BINARY NOT NULL default ''"
-
-		),
 		'category' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_asc_redirect']['category'],
@@ -231,6 +184,7 @@ $GLOBALS['TL_DCA']['tl_asc_redirect'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_asc_redirect']['published'],
 			'inputType'               => 'checkbox',
 			'filter'                  => true,
+			'toggle' 				  => true,
 			'eval'                    => array('doNotCopy'=>true),
 			'sql'                     => "char(1) NOT NULL default ''"
 		),

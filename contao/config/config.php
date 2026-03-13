@@ -3,7 +3,7 @@
 /**
  * Redirect Manager
  *
- * Copyright (C) 2019-2022 Andrew Stevens Consulting
+ * Copyright (C) 2019-2026 Andrew Stevens Consulting
  *
  * @package    asconsulting/redirect_manager
  * @link       https://andrewstevens.consulting
@@ -37,11 +37,3 @@ $GLOBALS['FE_MOD']['redirect_manager'] = array('redirect_404' => 'RedirectManage
  * Models
  */
 $GLOBALS['TL_MODELS']['tl_asc_redirect'] = 'RedirectManager\Model\Redirect';
-
-
-/**
- * Styles
- */
- if (version_compare(VERSION, '4.4', '>=')) {
-	$GLOBALS['TL_CSS'][] = 'system/modules/redirect_manager/assets/css/backend-contao4.css|static';
-}

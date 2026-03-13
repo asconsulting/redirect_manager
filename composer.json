@@ -3,7 +3,7 @@
     "description":"URL redirection module for Contao 4.9+",
     "homepage": "https://andrewstevens.consulting",
     "keywords":["contao", "htaccess", ".htaccess", "redirect", "rewrite", "url", "301", "302"],
-    "type":"contao-module",
+    "type":"contao-bundle",
     "license":"LGPL-3.0-or-later",
     "authors":[
         {
@@ -12,26 +12,19 @@
         }
     ],
     "require":{
-        "php": ">=7.4",
-        "contao/core-bundle": ">=4.13",
-        "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
+        "php": ">=8.2",
+        "contao/core-bundle": "^5.3"
     },
     "require-dev": {
         "contao/manager-plugin": "^2.0"
     },
     "autoload": {
         "psr-4": {
-            "RedirectManager\\": [
-                "system/modules/redirect_manager/library/RedirectManager"
-            ]
+            "RedirectManager\\": "src/"
         }
     },
-    "extra": {
-        "contao": {
-            "sources": {
-                "system/modules/redirect_manager": "system/modules/redirect_manager"
-            }
-        }
-    },
+	"extra": {
+		"contao-manager-plugin": "RedirectManager\\ContaoManager\\Plugin"
+	},
     "minimum-stability": "dev"
 }
