@@ -11,15 +11,18 @@
 
 
 
+use Contao\ArrayUtil;
+
+
 /**
  * Back end modules
  */
 if (!array_key_exists('redirect_manager', $GLOBALS['BE_MOD']))
 {
-    array_insert($GLOBALS['BE_MOD'], 1, array('redirect_manager' => array()));
+    ArrayUtil::arrayInsert($GLOBALS['BE_MOD'], 1, array('redirect_manager' => array()));
 }
 
-array_insert($GLOBALS['BE_MOD']['redirect_manager'], 0, array
+ArrayUtil::arrayInsert($GLOBALS['BE_MOD']['redirect_manager'], 0, array
 (
 	'redirects' => array
 	(
