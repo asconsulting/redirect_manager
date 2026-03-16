@@ -23,7 +23,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 
 #[AsCallback(table: 'tl_asc_redirect', target: 'config.onload')]
-class LayoutLoadCallbackListener
+class RedirectOnloadCallbackListener
 {
     private $requestStack;
 
